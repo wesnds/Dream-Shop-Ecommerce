@@ -14,7 +14,13 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
-- [ ] Loading...
+- [ ] CategoryService
+- [ ] ImageService
+- [ ] ProductController
+- [ ] CategoryController
+- [ ] ImageController
+- [ ] Tests
+
 
 [//]: # (- [x] Tarefa 2)
 
