@@ -1,17 +1,13 @@
 package com.Spring.SpringeCommerce.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "products")
@@ -30,7 +26,15 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    //delete all images associated when product is deleted
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Image> images;
+
+    public Product(String name, String brand, String description, BigDecimal price, int inventory, Category category) {
+        this.name = name;
+        this.brand = brand;
+        this.description = description;
+        this.price = price;
+        this.inventory = inventory;
+        this.category = category;
+    }
 }
