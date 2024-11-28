@@ -1,10 +1,10 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: banking_db
+    container_name: ecommercedreams_db
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: banking
+      MYSQL_DATABASE: dreamshop
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
