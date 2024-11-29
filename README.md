@@ -15,8 +15,8 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
 - [X] CategoryService
-- [ ] ImageService
-- [ ] ProductController
+- [X] ImageService
+- [] ProductController
 - [ ] CategoryController
 - [ ] ImageController
 - [ ] Tests
