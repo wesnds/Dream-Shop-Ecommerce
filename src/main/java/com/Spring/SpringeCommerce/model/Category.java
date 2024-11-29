@@ -7,7 +7,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "categories")
@@ -22,5 +21,6 @@ public class Category {
     private List<Product> products;
 
     public Category(String name) {
+        this.name = name;
     }
 }

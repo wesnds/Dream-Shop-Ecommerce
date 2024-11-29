@@ -2,7 +2,7 @@ package com.Spring.SpringeCommerce.service;
 
 import com.Spring.SpringeCommerce.requests.AddProductRequest;
 import com.Spring.SpringeCommerce.requests.ProductUpdateRequest;
-import com.Spring.SpringeCommerce.exceptions.ProductNotFoundException;
+import com.Spring.SpringeCommerce.exceptions.ResourceNotFoundException;
 import com.Spring.SpringeCommerce.interfaces.IProductService;
 import com.Spring.SpringeCommerce.model.Category;
 import com.Spring.SpringeCommerce.model.Product;
@@ -56,7 +56,7 @@ public class ProductService implements IProductService {
 
     @Override
     public Product getProductById(Long id) {
-        return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found!"));
+        return productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product not found!"));
     }
 
     @Override
@@ -87,7 +87,7 @@ public class ProductService implements IProductService {
     @Override
     public void deleteProduct(Long id) {
         productRepository.findById(id).ifPresentOrElse(productRepository::delete, () ->{
-            throw new ProductNotFoundException("Product not found!");
+            throw new ResourceNotFoundException("Product not found!");
         });
     }
 
@@ -108,7 +108,7 @@ public class ProductService implements IProductService {
         return productRepository.findById(productId)
                 .map(product -> updateExistingProduct(product, request))
                 .map(productRepository :: save)
-                .orElseThrow(() -> new ProductNotFoundException("Product not found!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found!"));
     }
 
     @Override
