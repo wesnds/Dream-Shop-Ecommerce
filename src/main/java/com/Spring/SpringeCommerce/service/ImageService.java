@@ -3,6 +3,7 @@ package com.Spring.SpringeCommerce.service;
 import com.Spring.SpringeCommerce.dto.ImageDTO;
 import com.Spring.SpringeCommerce.exceptions.ResourceNotFoundException;
 import com.Spring.SpringeCommerce.interfaces.IImageService;
+import com.Spring.SpringeCommerce.interfaces.IProductService;
 import com.Spring.SpringeCommerce.model.Image;
 import com.Spring.SpringeCommerce.model.Product;
 import com.Spring.SpringeCommerce.repository.ImageRepository;
@@ -25,7 +26,7 @@ public class ImageService implements IImageService {
     private ImageRepository imageRepository;
 
     @Autowired
-    private ProductService productService;
+    private IProductService productService;
 
     @Override
     public Image getImageById(Long id) {

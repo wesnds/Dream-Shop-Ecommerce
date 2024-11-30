@@ -7,7 +7,6 @@ import com.Spring.SpringeCommerce.model.Category;
 import com.Spring.SpringeCommerce.response.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,10 +47,10 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/category/${categoryId}")
-    public ResponseEntity<ApiResponse> getCategoryById(@PathVariable Long id){
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<ApiResponse> getCategoryById(@PathVariable Long categoryId){
         try {
-            Category category = categoryService.getCategoryById(id);
+            Category category = categoryService.getCategoryById(categoryId);
             return ResponseEntity.ok(new ApiResponse("Found", category));
         } catch (ResourceNotFoundException e){
             return ResponseEntity
@@ -60,7 +59,7 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/category/${categoryName}")
+    @GetMapping("/category/{categoryName}")
     public ResponseEntity<ApiResponse> getCategoryByName(@PathVariable String categoryName){
         try {
             Category category = categoryService.getCategoryByName(categoryName);
@@ -73,9 +72,9 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{categoryId}/delete")
-    public ResponseEntity<ApiResponse> deleteCategory(@PathVariable Long id){
+    public ResponseEntity<ApiResponse> deleteCategory(@PathVariable Long categoryId){
         try {
-            categoryService.deleteCategory(id);
+            categoryService.deleteCategory(categoryId);
             return ResponseEntity.ok(new ApiResponse("Found", null));
         } catch (ResourceNotFoundException e){
             return ResponseEntity
@@ -84,7 +83,7 @@ public class CategoryController {
         }
     }
 
-    @PutMapping("/category/${categoryId}/update")
+    @PutMapping("/category/{categoryId}/update")
     public ResponseEntity<ApiResponse> updateCategory(@PathVariable Long id, @RequestBody Category category){
         try {
             Category updatedCategory = categoryService.updateCategory(category, id);

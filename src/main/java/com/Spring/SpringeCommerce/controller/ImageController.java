@@ -19,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.sql.SQLException;
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("${api.prefix}/images")
@@ -34,7 +36,7 @@ public class ImageController {
            return  ResponseEntity.ok(new ApiResponse("Upload success", imageDTOList));
        } catch (Exception e){
            return ResponseEntity
-                   .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                   .status(INTERNAL_SERVER_ERROR)
                    .body(new ApiResponse("Upload failed", e.getMessage()));
        }
     }
@@ -66,8 +68,8 @@ public class ImageController {
         }
 
         return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(new ApiResponse("Update failed!", HttpStatus.INTERNAL_SERVER_ERROR));
+                .status(INTERNAL_SERVER_ERROR)
+                .body(new ApiResponse("Update failed!", INTERNAL_SERVER_ERROR));
     }
 
     @DeleteMapping("/image/{imageId}/delete")
@@ -85,7 +87,7 @@ public class ImageController {
         }
 
         return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(new ApiResponse("Delete failed!", HttpStatus.INTERNAL_SERVER_ERROR));
+                .status(INTERNAL_SERVER_ERROR)
+                .body(new ApiResponse("Delete failed!", INTERNAL_SERVER_ERROR));
     }
 }
