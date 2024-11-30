@@ -18,7 +18,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [X] ImageService
 - [] ProductController
 - [ ] CategoryController
-- [ ] ImageController
+- [X] ImageController
 - [ ] Tests
 
 
