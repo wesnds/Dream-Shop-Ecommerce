@@ -5,6 +5,7 @@ import com.Spring.SpringeCommerce.exceptions.ResourceNotFoundException;
 import com.Spring.SpringeCommerce.interfaces.IImageService;
 import com.Spring.SpringeCommerce.model.Image;
 import com.Spring.SpringeCommerce.response.ApiResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.sql.SQLException;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("${api.prefix}/images")
 public class ImageController {
